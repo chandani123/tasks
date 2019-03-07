@@ -12,13 +12,15 @@ include("Db_connection.php");
 $connection = new database();
 $con = $connection->database();
 
+
         $filename = $argv[1];
         $file = fopen($filename, "r");
         while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
         {
-            if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", strtolower($getData[2]))){
-                echo "Invalid Email Address is : ".strtolower($getData[2]);
 
+            if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", strtolower($getData[2]))){
+                echo "Invalid Email Address is : ".strtolower($getData[2]); ?><br>
+            <?php
             }else{
 
                  $fname = "";$sname="";$email="";
