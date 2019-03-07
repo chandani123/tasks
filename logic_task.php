@@ -6,4 +6,10 @@ include("Db_connection.php");
 $connection = new database();
 $con = $connection->database();
 
+for($i=1;$i<=100;$i++)
+{
+   echo $i;
+
+}
+
 ?>
