@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 0);
+error_reporting(0);
 
     // Db Connection
     $con = mysqli_connect("localhost","root","","catalyst_task");
@@ -16,17 +18,21 @@
                strtolower used to other letter small from string
             */
 
+
             if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", strtolower($getData[2]))){
                 echo "Invalid Email Address is : ".strtolower($getData[2]);
-                die;
+
             }else{
 
-                $sql = "INSERT into users (name,surname,email) 
-                   values ('".ucwords(strtolower($getData[0]))."','".ucwords(strtolower($getData[1]))."','".strtolower($getData[2])."')";
-                $result = mysqli_query($con,$sql);
+                 $fname = "";$sname="";$email="";
+                    $fname = mysqli_real_escape_string($con,$getData[0]);
+                    $sname = mysqli_real_escape_string($con,$getData[1]);
+                    $email = mysqli_real_escape_string($con,$getData[2]);
+
+                    $sql = "INSERT into users (name,surname,email)
+                           values ('".ucwords(strtolower($fname))."','".ucwords(strtolower($sname))."','".strtolower($email)."')";
+                    $result = mysqli_query($con,$sql);
             }
-
-
         }
         if(!isset($result))
         {
@@ -38,5 +44,4 @@
         }
         fclose($file);
     }
-
 ?>
