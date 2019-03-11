@@ -32,7 +32,7 @@ class database {
         }
 
         // Create a database
-        $sql_createDB = "CREATE DATABASE catalyst_task ";
+        $sql_createDB = "CREATE DATABASE catalyst_task";
         mysqli_query($con,$sql_createDB);
 
         // Error Handling
