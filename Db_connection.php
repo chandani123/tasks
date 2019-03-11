@@ -20,8 +20,18 @@ class database {
      * @param boolean If true and there is an error, go offline
      */
     function database() {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
 
-        $con = mysqli_connect("localhost","root","","catalyst_task");
+// Create connection
+        $con = new mysqli($servername, $username, $password);
+// Check connection
+        if ($con->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+      //  $con = mysqli_connect("localhost","root","","catalyst_task");
         return $con;
     }
 
