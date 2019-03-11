@@ -13,18 +13,23 @@ $connection = new database();
 $con = $connection->database();
 
 
-// Create a database
-        $sql_createDB = "CREATE DATABASE created_DB ";
-        mysqli_query($con,$sql_createDB);
 
-         $sql_CreateTable =  "CREATE TABLE created_DB.users (
+
+         $sql_CreateTable =  "CREATE TABLE IF NOT EXISTS catalyst_task.users (
                     userID int(10)  AUTO_INCREMENT,
                     name varchar(250),
                     surname varchar(250),
                     email varchar(250),
                     PRIMARY KEY (userID),
                     UNIQUE KEY (email))";
-        mysqli_query($con,$sql_CreateTable);
+                    // Error Handling
+                    try {
+                        mysqli_query($con,$sql_CreateTable);
+                    }
+                    catch(Exception $e) {
+                        echo 'Message: ' .$e->getMessage();
+                    }
+
 
 
         $filename = $argv[1];
@@ -44,7 +49,14 @@ $con = $connection->database();
 
                     $sql = "INSERT into users (name,surname,email)
                            values ('".ucwords(strtolower($fname))."','".ucwords(strtolower($sname))."','".strtolower($email)."')";
-                    $result = mysqli_query($con,$sql);
+                    // Error Handling
+                    try {
+                        $result = mysqli_query($con,$sql);
+                    }
+                    catch(Exception $e) {
+                        echo 'Message: ' .$e->getMessage();
+                    }
+
             }
         }
         if(!isset($result))

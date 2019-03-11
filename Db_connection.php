@@ -26,13 +26,23 @@ class database {
 
 // Create connection
         $con = new mysqli($servername, $username, $password);
-// Check connection
+    // Check connection
         if ($con->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-      //  $con = mysqli_connect("localhost","root","","catalyst_task");
-        return $con;
+        // Create a database
+        $sql_createDB = "CREATE DATABASE catalyst_task ";
+        mysqli_query($con,$sql_createDB);
+
+        // Error Handling
+        try {
+            $con = mysqli_connect("localhost","root","","catalyst_task");
+            return $con;
+        }
+        catch(Exception $e) {
+            echo 'Message: ' .$e->getMessage();
+        }
     }
 
     /**
