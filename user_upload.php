@@ -13,6 +13,20 @@ $connection = new database();
 $con = $connection->database();
 
 
+// Create a database
+        $sql_createDB = "CREATE DATABASE created_DB ";
+        mysqli_query($con,$sql_createDB);
+
+         $sql_CreateTable =  "CREATE TABLE created_DB.users (
+                    userID int(10)  AUTO_INCREMENT,
+                    name varchar(250),
+                    surname varchar(250),
+                    email varchar(250),
+                    PRIMARY KEY (userID),
+                    UNIQUE KEY (email))";
+        mysqli_query($con,$sql_CreateTable);
+
+
         $filename = $argv[1];
         $file = fopen($filename, "r");
         while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
