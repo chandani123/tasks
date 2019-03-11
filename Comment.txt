@@ -1,8 +1,32 @@
+* IF YOU WANT ANY DATABSE RELATED CHANGES PLEASE MAKE IN Db_connection.php FILE.
 
-* Note : My database name is catalyst_task if your database name is diffrent then please change *
 
-1 open the project folder :: C:\wamp\www\catalyst_task
+==> Project Runnig Step <==
 
-2 then run the file :: php user_upload.php C:\Users\Dhaval\Desktop\Task\users.csv
+1 open the project folder :: cd C:\wamp\www\catalyst_task
+
+2 then run the file :: php user_upload.php file location(C:\Users\Dhaval\Desktop\Task\users.csv)
 
 3 For Logic Task :: php foobar.php
+
+******** Note ************
+
+########################
+
+File : Db_connection.php
+
+- In this file including a database creation logic .
+- Connect create database
+
+##########################
+
+File : user_upload.php
+
+- In this file including a create table and import file logic.
+- table name as per document is users and field name is name, surname, email.
+- one extra field add in table userID it's auto increment and primary key.
+- email address is unique in this table.
+- Invalid email address doesn't including in DB.
+- user name and surname field all letter is make to small except first letter.
+- email address field is in all letter is make a small.
+- try catch used for error handling.
