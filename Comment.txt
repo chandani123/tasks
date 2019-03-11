@@ -1,13 +1,32 @@
-* IF YOU WANT ANY DATABSE RELATED CHANGES PLEASE MAKE IN Db_connection.php FILE.
+* PLEASE CHANGE THE Db_connection.php FILE IF YOU WANT TO MAKE ANY DATABASE CHANGES
+* KINDLY NOTE THAT YOU HAVE TO OPEN WAMP/XAMPP SERVER BEFORE STARTING THE BELOW ACTIVITIES.
 
+TASK 1:
 
-==> Project Runnig Step <==
+  Follow the below steps to execute the Project.
 
-1 open the project folder :: cd C:\wamp\www\catalyst_task
+    Go to the cmd (Command Prompt)
 
-2 then run the file :: php user_upload.php file location(C:\Users\Dhaval\Desktop\Task\users.csv)
+    open the Project folder through the command "cd <Path of the folder>" (where the user_upload.php is located).
 
-3 For Logic Task :: php foobar.php
+    Execute the command "php user_upload.php <File location>/users.csv" to run the file users.csv.
+
+    You will get the output based on your data in the file.
+  
+    TASK 1 is completed.
+  
+
+TASK 2:
+
+  Follow the below steps for the Logic Test:
+  
+    Go to the cmd (Command Prompt)
+
+    open the Project folder through the command "cd <Path of the folder>" (where the user_upload.php is located).
+
+    For the Logic Test, execute the command "php foobar.php".
+  
+    You will get the expected output.
 
 ******** Note ************
 
@@ -15,18 +34,19 @@
 
 File : Db_connection.php
 
-- In this file including a database creation logic .
-- Connect create database
+- This file includes database creation logic.
+- Connect/Create database
 
 ##########################
 
-File : user_upload.php
+* Table (users) and DB (catalyst_task) creation does not require to create externally. It will create automatically when the file user_upload.php has been executed. *
 
-- In this file including a create table and import file logic.
-- table name as per document is users and field name is name, surname, email.
-- one extra field add in table userID it's auto increment and primary key.
+I have included below logic as per your assumptions:
+
+- table name as per document is "users" and field names are name, surname, email.
+- one extra field added in table userID it's auto increment and primary key.
 - email address is unique in this table.
-- Invalid email address doesn't including in DB.
-- user name and surname field all letter is make to small except first letter.
+- Invalid email address record doesn't included in DB.
+- user name and surname field all converted to Proper case.
 - email address field is in all letter is make a small.
 - try catch used for error handling.
